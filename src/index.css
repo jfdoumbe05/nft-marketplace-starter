@@ -9,4 +9,23 @@
 @import "./css/styles/jquery.countdown.css";
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
-@import "./css/styles/coloring.css";
+.slick-prev,
+.slick-next {
+  display: block !important;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: -30px !important;
+}
+
+.slick-next {
+  right: -30px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #8364e2 !important;
+  font-size: 30px !important;
+  opacity: 1 !important;
+}@import "./css/styles/coloring.css";
