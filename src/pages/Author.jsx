@@ -6,14 +6,16 @@ import AuthorImage from "../images/author_thumbnail.jpg";
 
 const Author = () => {
   const [author, setAuthor] = useState(null);
+  const [followers, setFollowers] = useState(0);
 
   useEffect(() => {
   fetch(
     "https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=73855012"
-  )
-    .then((res) => res.json())
+)
+  .then((res) => res.json())
   .then((data) => {
-  setAuthor(data);
+    setAuthor(data);
+    setFollowers(data.followers || 0);
 });
 }, []);
   return (
@@ -58,11 +60,14 @@ const Author = () => {
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
                       <div className="profile_follower">
-  {author?.followers ?? 0} followers
+  {followers} followers
 </div>
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+               <button
+  className="btn-main"
+  onClick={() => setFollowers(followers + 1)}
+>
+  Follow
+</button>
                     </div>
                   </div>
                 </div>

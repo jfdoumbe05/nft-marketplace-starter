@@ -17,11 +17,14 @@ const HotCollections = () => {
   arrows: true,
 };
 
-  useEffect(() => {
-    fetch("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
-      .then((res) => res.json())
-      .then((data) => setHotCollections(data));
-  }, []);
+ useEffect(() => {
+  fetch("https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("HOT COLLECTIONS DATA:", data);
+      setHotCollections(data);
+    });
+}, []);
 
   return (
    <div className="container">
@@ -46,7 +49,7 @@ const HotCollections = () => {
                 </div>
                 <div className="nft_coll_pp">
                   <Link to="/author">
-                    <img className="lazy pp-coll" src={collection.AuthorImage} alt="" />
+                  <img className="pp-coll" src={collection.authorImage} alt="" />
                   </Link>
                   <i className="fa fa-check"></i>
                 </div>

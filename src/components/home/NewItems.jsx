@@ -3,9 +3,20 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import CountdownTimer from "./CountdownTimer";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([]);
+  const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: true,
+};
 
   useEffect(() => {
   fetch("https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems")
@@ -23,8 +34,9 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
             </div>
+            <Slider {...settings}>
           {newItems.map((item) => (       
-            <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={item.id}>
+            <div key={item.id}>
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Link
@@ -79,6 +91,7 @@ const NewItems = () => {
               </div>
             </div>
           ))}
+          </Slider>
           </div>
         </div>
     </section>

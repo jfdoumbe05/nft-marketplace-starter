@@ -12707,6 +12707,7 @@ a.read_more i {
 .switch {
   margin-bottom: -5px;
   -webkit-appearance: none;
+  appearance: none;
   height: 24px;
   width: 44px;
   background-color: #eeeeee;
@@ -13260,7 +13261,6 @@ a.read_more i {
   border: solid 5px #ffffff;
   background: #ffffff;
 }
-
 .nft_coll_pp i {
   font-size: 10px;
   color: #ffffff;
@@ -15145,7 +15145,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {

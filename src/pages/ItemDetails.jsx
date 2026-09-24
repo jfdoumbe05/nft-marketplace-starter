@@ -76,7 +76,9 @@ const ItemDetails = () => {
                           </Link>
                         </div>
                         <div className="author_list_info">
-             {item?.ownerName || "Monica Lucas"}             <Link to="/author"></Link>
+             <Link to="/author">
+  {item?.ownerName || "Lori Hart"}
+</Link>
                         </div>
                       </div>
                     </div>
